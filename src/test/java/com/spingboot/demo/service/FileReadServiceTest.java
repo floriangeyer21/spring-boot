@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class FileReadServiceTest {
-    private String CORRECT_PATH = "D:\\test\\input.txt";
+    private String CORRECT_PATH = "src/main/resources/input.txt";
     private String WRONG_PATH = "wrong_path";
     private final FileReadService fileReadService;
 
