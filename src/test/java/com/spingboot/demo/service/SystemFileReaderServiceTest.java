@@ -3,34 +3,36 @@ package com.spingboot.demo.service;
 import com.spingboot.demo.exceptions.FileProcessingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.spingboot.demo.service.impl.SystemFileReaderService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FileReadServiceTest {
-    private String CORRECT_PATH = "src/main/resources/input.txt";
-    private String WRONG_PATH = "wrong_path";
-    private final FileReadService fileReadService;
+class SystemFileReaderServiceTest {
+    private static final String CORRECT_PATH = "src/test/resources/input.txt";
+    private static final String WRONG_PATH = "wrong_path";
+    private final SystemFileReaderService systemFileReaderService;
 
     @Autowired
-    public FileReadServiceTest(FileReadService fileReadService) {
-        this.fileReadService = fileReadService;
+    public SystemFileReaderServiceTest(SystemFileReaderService systemFileReaderService) {
+        this.systemFileReaderService = systemFileReaderService;
     }
 
     @Test
     public void correctPath_OK() throws FileProcessingException {
         List<String> expected = new ArrayList<>();
         expected.add("some text for test");
-        List<String> actual = fileReadService.read(CORRECT_PATH);
-        Assertions.assertEquals(expected.toString(), actual.toString());
+        List<String> actual = systemFileReaderService.read(CORRECT_PATH);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void incorrectPath_Error() throws FileProcessingException {
         Exception exception = Assertions.assertThrows(FileProcessingException.class, () -> {
-            fileReadService.read(WRONG_PATH);
+            systemFileReaderService.read(WRONG_PATH);
         });
         String expectedMessage = "Can't read file from path wrong_path";
         String actualMessage = exception.getMessage();
@@ -40,7 +42,7 @@ class FileReadServiceTest {
     @Test
     public void withNullArgument_EmptyList() throws FileProcessingException {
         List<String > expected = new ArrayList<>();
-        List<String> actual = fileReadService.read(null);
+        List<String> actual = systemFileReaderService.read(null);
         Assertions.assertEquals(expected, actual);
     }
 }

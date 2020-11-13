@@ -1,6 +1,7 @@
-package com.spingboot.demo.service;
+package com.spingboot.demo.service.impl;
 
 import com.spingboot.demo.exceptions.FileProcessingException;
+import com.spingboot.demo.service.interfaces.FileReaderService;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,15 +12,16 @@ import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FileReadService {
+public class SystemFileReaderService implements FileReaderService {
 
+    @Override
     public List<String> read(String path) throws FileProcessingException {
         if (path == null) {
             return Collections.emptyList();
         }
         List<String> result = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader
-                (new FileReader(FilenameUtils.separatorsToSystem(path)))) {
+        try (BufferedReader bufferedReader = new BufferedReader(
+                new FileReader(FilenameUtils.separatorsToSystem(path)))) {
             String line = "";
             while ((line = bufferedReader.readLine()) != null) {
                 result.add(line);
@@ -30,4 +32,3 @@ public class FileReadService {
         return result;
     }
 }
-
