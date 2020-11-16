@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface FileReaderService {
 
-    List<String> read(String path) throws FileProcessingException;
+    List<String> read(String path);
 }
