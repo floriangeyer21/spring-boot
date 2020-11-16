@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class SystemFileReaderService implements FileReaderService {
 
     @Override
-    public List<String> read(String path) throws FileProcessingException {
+    public List<String> read(String path) {
         if (path == null) {
             return Collections.emptyList();
         }

@@ -21,7 +21,7 @@ class SystemFileReaderServiceTest {
     }
 
     @Test
-    public void correctPath_OK() throws FileProcessingException {
+    public void correctPath_OK() {
         List<String> expected = new ArrayList<>();
         expected.add("some text for test");
         List<String> actual = systemFileReaderService.read(CORRECT_PATH);
@@ -29,7 +29,7 @@ class SystemFileReaderServiceTest {
     }
 
     @Test
-    public void incorrectPath_Error() throws FileProcessingException {
+    public void incorrectPath_Error() {
         Exception exception = Assertions.assertThrows(FileProcessingException.class, () -> {
             systemFileReaderService.read(WRONG_PATH);
         });
@@ -39,7 +39,7 @@ class SystemFileReaderServiceTest {
     }
 
     @Test
-    public void withNullArgument_EmptyList() throws FileProcessingException {
+    public void withNullArgument_EmptyList() {
         List<String > expected = new ArrayList<>();
         List<String> actual = systemFileReaderService.read(null);
         Assertions.assertEquals(expected, actual);
