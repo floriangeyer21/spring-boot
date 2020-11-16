@@ -1,10 +1,9 @@
 package com.spingboot.demo.service.interfaces;
 
-import org.apache.catalina.LifecycleState;
-
 import java.util.List;
+import org.apache.commons.csv.CSVRecord;
 
 public interface CsvParserService<T> {
 
-    List<T> parseToDomain(List<String> input);
+    List<T> parseToDomain(List<CSVRecord> input);
 }

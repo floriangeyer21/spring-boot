@@ -12,7 +12,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SystemFileReaderService implements FileReaderService {
+public class SystemFileReaderService implements FileReaderService<String> {
 
     @Override
     public List<String> read(String path) {

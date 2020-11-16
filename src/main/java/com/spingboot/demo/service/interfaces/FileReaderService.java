@@ -2,7 +2,7 @@ package com.spingboot.demo.service.interfaces;
 
 import java.util.List;
 
-public interface FileReaderService {
+public interface FileReaderService<T> {
 
-    List<String> read(String path);
+    List<T> read(String path);
 }

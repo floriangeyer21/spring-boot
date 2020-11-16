@@ -8,5 +8,5 @@ import lombok.Data;
 public class TestDomain {
     private Long id;
     private String name;
-    private String age;
+    private int age;
 }
