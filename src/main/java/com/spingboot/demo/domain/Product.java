@@ -24,6 +24,3 @@ public class Product {
     @Column(unique = true, name = "product_id")
     private String productId;
 }
-
-
-

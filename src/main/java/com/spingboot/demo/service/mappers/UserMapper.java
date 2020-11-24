@@ -11,7 +11,7 @@ public class UserMapper {
     public User mapReviewDtoToUser(ReviewDto dto) {
         return User.builder()
                 .profileName(dto.getProfileName())
-                .userId(dto.getUserId())
+                .internalUserId(dto.getUserId())
                 .password(DEFAULT_PASSWORD)
                 .build();
     }
