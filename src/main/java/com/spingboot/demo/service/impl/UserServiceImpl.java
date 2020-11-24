@@ -3,6 +3,7 @@ package com.spingboot.demo.service.impl;
 import com.spingboot.demo.domain.RoleName;
 import com.spingboot.demo.domain.User;
 import com.spingboot.demo.domain.dto.ReviewDto;
+import com.spingboot.demo.domain.dto.UserResponseDto;
 import com.spingboot.demo.repository.RoleRepository;
 import com.spingboot.demo.repository.UserRepository;
 import com.spingboot.demo.service.interfaces.UserService;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -52,5 +54,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<UserResponseDto> findMostActive(int quantity) {
+        return userRepository.findMostActive(PageRequest.of(0, quantity));
     }
 }
