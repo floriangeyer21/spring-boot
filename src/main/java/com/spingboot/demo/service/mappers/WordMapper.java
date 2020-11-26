@@ -1,6 +1,5 @@
 package com.spingboot.demo.service.mappers;
 
-
 import com.spingboot.demo.domain.Word;
 import com.spingboot.demo.domain.dto.WordResponseDto;
 import org.springframework.stereotype.Component;

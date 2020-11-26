@@ -11,17 +11,13 @@ import com.spingboot.demo.service.impl.WordCounter;
 import com.spingboot.demo.service.interfaces.ReviewService;
 import com.spingboot.demo.service.interfaces.RoleService;
 import com.spingboot.demo.service.interfaces.WordService;
-import com.spingboot.demo.service.mappers.ReviewMapper;
-import lombok.extern.log4j.Log4j2;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import javax.annotation.PostConstruct;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class DataInjector {

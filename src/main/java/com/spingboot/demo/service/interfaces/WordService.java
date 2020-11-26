@@ -1,8 +1,6 @@
 package com.spingboot.demo.service.interfaces;
 
 import com.spingboot.demo.domain.Word;
-import com.spingboot.demo.domain.dto.ReviewDto;
-
 import java.util.List;
 
 public interface WordService {
