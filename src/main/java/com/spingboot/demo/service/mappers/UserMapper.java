@@ -2,6 +2,7 @@ package com.spingboot.demo.service.mappers;
 
 import com.spingboot.demo.domain.User;
 import com.spingboot.demo.domain.dto.ReviewDto;
+import com.spingboot.demo.domain.dto.UserResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,6 +14,12 @@ public class UserMapper {
                 .profileName(dto.getProfileName())
                 .internalUserId(dto.getUserId())
                 .password(DEFAULT_PASSWORD)
+                .build();
+    }
+
+    public UserResponseDto mapUserToResponseDto(User user) {
+        return UserResponseDto.builder()
+                .profileName(user.getProfileName())
                 .build();
     }
 }
